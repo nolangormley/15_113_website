@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --accent-gold: #d4af37;
+            --soft-cream: #f8f6f1;
+            --text-muted: #6b6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--primary-dark);
+            background-color: var(--soft-cream);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(248, 246, 241, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-link {
+            font-weight: 400;
+            color: var(--text-muted);
+            margin: 0 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-dark);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1rem;
+        }
+
+        .accent-line {
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 2rem auto;
+        }
+
+        /* About Content */
+        .about-section {
+            padding: 4rem 0;
+        }
+
+        .about-intro {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+
+        .bio-section {
+            background-color: white;
+            padding: 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            color: var(--text-muted);
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+        }
+
+        .skill-list li::before {
+            content: '—';
+            color: var(--accent-gold);
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-link {
+                margin: 0.5rem 0;
+            }
+
+            .page-header {
+                padding: 120px 0 60px;
+            }
+
+            .bio-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="accent-line"></div>
+            <h1 class="page-title">About Me</h1>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <p class="about-intro">
+                I'm a passionate designer and developer with a love for creating beautiful, functional digital experiences that make a difference.
+            </p>
+
+            <div class="bio-section">
+                <h2 class="section-subtitle">My Story</h2>
+                <p class="bio-text">
+                    With over 5 years of experience in the digital space, I've had the privilege of working with diverse clients ranging from startups to established enterprises. My journey began with a fascination for how design and technology intersect to solve real-world problems.
+                </p>
+                <p class="bio-text">
+                    I believe in the power of clean code, thoughtful design, and meaningful user experiences. Every project is an opportunity to learn, grow, and push the boundaries of what's possible.
+                </p>
+            </div>
+
+            <h2 class="section-subtitle">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">✦</div>
+                    <h3 class="skill-title">Design</h3>
+                    <ul class="skill-list">
+                        <li>UI/UX Design</li>
+                        <li>Brand Identity</li>
+                        <li>Prototyping</li>
+                        <li>Visual Design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">◆</div>
+                    <h3 class="skill-title">Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML/CSS/JavaScript</li>
+                        <li>React & Vue.js</li>
+                        <li>Node.js</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">●</div>
+                    <h3 class="skill-title">Tools</h3>
+                    <ul class="skill-list">
+                        <li>Figma & Adobe XD</li>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Photoshop & Illustrator</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
