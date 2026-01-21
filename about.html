@@ -9,22 +9,36 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="images/logo.svg" alt="Logo" height="36" style="vertical-align:middle;"> <span class="ms-2">MyPortfolio</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="site-nav"></div>
+    <script>
+    (function(){
+        var candidates = ['navbar.html','./navbar.html','/navbar.html'];
+        var container = document.getElementById('site-nav');
+        if(!container){ console.warn('No #site-nav element found'); }
+
+        function tryNext(i){
+            if(i >= candidates.length){ console.error('All attempts to load navbar.html failed'); return; }
+            fetch(candidates[i])
+                .then(function(res){ if(!res.ok) throw new Error('Status ' + res.status); return res.text(); })
+                .then(function(html){ container.innerHTML = html; setActiveLink(); })
+                .catch(function(){ tryNext(i+1); });
+        }
+
+        function setActiveLink(){
+            var path = window.location.pathname.split('/').pop();
+            if(!path) path = 'index.html';
+            var links = container.querySelectorAll('a.nav-link');
+            links.forEach(function(a){
+                a.classList.remove('active');
+                var href = a.getAttribute('href'); if(!href) return;
+                var hrefName = href.split('/').pop();
+                if(hrefName === path) a.classList.add('active');
+            });
+        }
+
+        tryNext(0);
+    })();
+    </script>
 
     <main class="container py-5">
         <div class="row align-items-center">
