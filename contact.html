@@ -45,26 +45,36 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="card shadow-sm p-4">
-                    <form>
+                    <!-- Form submits to FormSubmit (static, no backend). You will need to
+                         verify the destination email at formsubmit.co after first submit. -->
+                    <form action="https://formsubmit.co/nolangormley@gmail.com" method="POST">
+                        <!-- Honeypot to reduce spam (should be hidden) -->
+                        <input type="text" name="_honey" style="display:none">
+                        <!-- Disable FormSubmit's captcha (optional) -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Redirect after successful submit to local thank-you page -->
+                        <input type="hidden" name="_next" value="contact-success.html">
+                        <!-- Email subject shown in your inbox -->
+                        <input type="hidden" name="_subject" value="New message from MyPortfolio contact form">
+
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your message..."></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Send Message</button>
                     </form>
                 </div>
 
                 <div class="text-center mt-4">
-                    <p><strong>Email:</strong> myemail@example.com</p>
-                    <p><strong>Phone:</strong> (123) 456-7890</p>
+                    <p><strong>Email:</strong> nolangormley@gmail.com</p>
                 </div>
             </div>
         </div>
@@ -72,7 +82,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 My Portfolio. All Rights Reserved.</p>
+            <p>&copy; 2026 My Portfolio. Made in collaboration with Gemini AI. All Rights Reserved.</p>
         </div>
     </footer>
 
