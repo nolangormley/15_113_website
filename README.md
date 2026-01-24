@@ -28,6 +28,10 @@ I did not expect to enjoy using AI tools this much. I can honestly say that usin
 ### The Bad
 I felt myself getting into the loop of prompting for every error without taking a second to look at the error message and solve it myself. I think this is exactly why these tools are so dangerous for beginners. You need a certain amount of discipline to use these tools well without atrophying your skills. 
 
+### Some notes about the website
+- The banner picture is intentional
+- The interactive feature is the contact form, it is set up using FormSubmit and sends an email to my personal email.
+
 ---
 
 Created by Nolan Gormley, Gemini, Claude, and Copilot
