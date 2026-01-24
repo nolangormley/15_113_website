@@ -28,6 +28,15 @@ main {
     text-align: center;
 }
 
+/* Make hero image max 50% of viewport height */
+.hero-image {
+    max-height: 50vh;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Card Hover Effect (Projects Page) */
 .card {
     transition: transform 0.2s;
